@@ -48,6 +48,21 @@
     />
   </head>
   <body>
+    <!-- GitHub Pages SPA fallback receive — 404.html에서 redirect된 path를 정상 URL로 복원 -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <a href="#main" class="skip-link font-mono text-sm">메인 콘텐츠로 건너뛰기</a>
     <noscript>
       <div style="padding: 40px; text-align: center; color: #f5f1e8; background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
