@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -24,16 +24,20 @@ export default function CubeTransition({
 }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const cubeRef = useRef<HTMLDivElement>(null);
+  const frontRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const stage = stageRef.current;
     const cube = cubeRef.current;
-    if (!stage || !cube) return;
+    const front = frontRef.current;
+    if (!stage || !cube || !front) return;
+
+    // WebGL 캔버스는 3D 변형 안에서 부모 opacity/visibility를 무시하고
+    // 독립 합성됨 → 캔버스 요소 자체를 직접 숨겨야 edge-on 노이즈가 사라짐.
+    let canvasEl: HTMLElement | null = null;
 
     const ctx = gsap.context(() => {
-      gsap.to(cube, {
-        rotationX: 90,
-        ease: "none",
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: stage,
           start: "top top",
@@ -43,8 +47,20 @@ export default function CubeTransition({
           scrub: 1,
           invalidateOnRefresh: true,
           anticipatePin: 1,
+          onUpdate: (self) => {
+            if (!canvasEl) canvasEl = front.querySelector("canvas");
+            if (canvasEl) {
+              // 회전 45% 지나 면이 옆으로 서기 시작하면 캔버스 직접 숨김
+              canvasEl.style.visibility =
+                self.progress > 0.45 ? "hidden" : "visible";
+            }
+          },
         },
       });
+      // 큐브 회전 (전 구간)
+      tl.to(cube, { rotationX: 90, ease: "none", duration: 1 }, 0);
+      // 정면(Hero) 콘텐츠(텍스트 등)도 함께 페이드아웃
+      tl.to(front, { autoAlpha: 0, ease: "none", duration: 0.25 }, 0.5);
     });
 
     // layout 로드 후 refresh
@@ -59,7 +75,7 @@ export default function CubeTransition({
     <div
       ref={stageRef}
       className="cube-stage relative w-full h-screen overflow-hidden"
-      style={{ perspective: "6000px", perspectiveOrigin: "50% 50%" }}
+      style={{ perspective: "4000vh", perspectiveOrigin: "50% 50%" }}
     >
       <div
         ref={cubeRef}
@@ -71,6 +87,7 @@ export default function CubeTransition({
       >
         {/* 정면 face */}
         <div
+          ref={frontRef}
           className="cube-face absolute inset-0 w-full h-full overflow-hidden"
           style={{
             transformStyle: "preserve-3d",

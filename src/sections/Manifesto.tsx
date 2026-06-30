@@ -12,7 +12,7 @@ export default function Manifesto() {
         {/* === Divider === */}
         <div className="mt-8 mb-20">
           <div className="scroll-line-draw h-px bg-brand-green-bright origin-left" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mute mt-4 scroll-reveal">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand-mute mt-4 scroll-reveal">
             / Three Credos
           </p>
         </div>
@@ -43,13 +43,18 @@ export default function Manifesto() {
                   <p className="text-lg md:text-xl font-semibold leading-[1.4] text-brand-ivory mb-6">
                     {c.ko}
                   </p>
-                  <p className="text-[15px] md:text-base font-light leading-[1.7] text-brand-paper/85">
-                    {c.body}
+                  <p className="text-[15px] md:text-base font-light leading-[1.7] text-brand-paper/85 break-keep">
+                    {c.body.split(/(?<=\.)\s+/).map((s, si, arr) => (
+                      <span key={si}>
+                        {s}
+                        {si < arr.length - 1 && <br />}
+                      </span>
+                    ))}
                   </p>
                 </div>
 
                 <div className="pl-6 md:pl-8 mt-12 pt-8 border-t border-brand-ivory/15">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mute mb-3">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand-mute mb-3">
                     / Number that backs it
                   </p>
                   <p className="display-hd text-5xl md:text-6xl font-extrabold leading-none tabular-nums mb-3">

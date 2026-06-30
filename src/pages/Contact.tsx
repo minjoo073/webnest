@@ -83,13 +83,13 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="block bg-brand-black p-8 group hover:bg-brand-green-bright transition-colors"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute group-hover:text-brand-black">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute group-hover:text-brand-black">
                   {c.label}
                 </p>
                 <p className="mt-3 font-display text-2xl md:text-3xl font-bold group-hover:text-brand-black">
                   {c.value}
                 </p>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-brand-mute group-hover:text-brand-black">
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-brand-mute group-hover:text-brand-black">
                   Tap to connect →
                 </p>
               </a>
@@ -217,7 +217,7 @@ export default function Contact() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute mb-2">
+      <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute mb-2">
         {label}
       </span>
       {children}

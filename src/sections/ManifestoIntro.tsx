@@ -27,11 +27,11 @@ export default function ManifestoIntro() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-green-bright scroll-reveal-left pl-6">
               / 01
             </p>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-mute mt-2 scroll-reveal-left scroll-stagger-1 pl-6">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-silver mt-2 scroll-reveal-left scroll-stagger-1 pl-6">
               Manifesto
             </p>
             <div className="hidden md:block mt-12 pl-6 max-w-[12rem] scroll-reveal scroll-stagger-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-mute leading-relaxed">
+              <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-silver leading-relaxed">
                 What we believe
                 <br />
                 &amp; how we build
@@ -60,12 +60,12 @@ export default function ManifestoIntro() {
               ))}
             </h2>
 
-            <p className="scroll-reveal mt-8 md:mt-10 max-w-2xl text-base md:text-lg font-normal leading-[1.5] text-brand-ivory">
+            <p className="scroll-reveal mt-8 md:mt-10 max-w-4xl break-keep text-base md:text-lg font-light leading-[1.6] text-brand-paper/85">
               웹사이트는 기업의 얼굴이자 가장 강력한 마케팅 도구이며,
               브랜드의 첫인상을 결정하는 공간입니다.
             </p>
 
-            <p className="scroll-reveal scroll-stagger-1 mt-4 max-w-2xl text-sm md:text-[15px] font-light leading-[1.6] text-brand-silver">
+            <p className="scroll-reveal scroll-stagger-1 mt-4 max-w-4xl break-keep text-base md:text-lg font-light leading-[1.6] text-brand-paper/85">
               저희는 디자인과 개발을 분리하지 않습니다. 브랜드 분석부터
               기획, 디자인, 퍼블리싱, 운영까지 하나의 흐름으로 연결해
               완성도 높은 디지털 경험을 만듭니다.

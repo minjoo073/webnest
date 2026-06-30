@@ -2,7 +2,7 @@ import { values } from "../data/values";
 
 export default function Values() {
   return (
-    <section className="relative py-32 md:py-48 border-t editorial-line">
+    <section className="relative pb-16 md:pb-20">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10">
         {/* Header는 ValuesIntro (큐브 face)로 분리됨 */}
 
@@ -16,7 +16,7 @@ export default function Values() {
                 <span className="font-mono text-[11px] font-medium uppercase tracking-[0.3em] text-brand-green-bright">
                   {v.index}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mute">
+                <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand-mute">
                   / Principle
                 </span>
               </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import NodeNetwork from "../components/NodeNetwork";
 
 export default function Hero() {
@@ -36,11 +37,11 @@ export default function Hero() {
 
 
       {/* Top tag */}
-      <div className="absolute top-28 left-6 md:left-10 z-20 font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mute">
+      <div className="absolute top-28 left-6 md:left-10 z-20 font-mono text-[11px] uppercase tracking-[0.3em] text-brand-mute">
         / WEB NEST · EST. 2024 · SEL
       </div>
       <div className="absolute top-28 right-6 md:right-10 z-20 text-right">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mute">
+        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand-mute">
           Status
         </p>
         <p className="font-mono text-xs mt-1 flex items-center justify-end gap-2">
@@ -80,28 +81,20 @@ export default function Hero() {
           className="mt-12 flex flex-wrap items-center justify-center gap-4 scroll-reveal scroll-visible"
           style={{ transitionDelay: "0.55s" }}
         >
-          <a
-            href="/works"
+          <Link
+            to="/works"
             className="inline-flex items-center gap-2 rounded-full bg-brand-ivory px-7 py-3 font-mono text-xs uppercase tracking-[0.18em] text-brand-black hover:bg-brand-green-bright transition-colors"
           >
             작업 보기
             <span aria-hidden>→</span>
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-brand-ivory/30 px-7 py-3 font-mono text-xs uppercase tracking-[0.18em] hover:border-brand-green-bright hover:text-brand-green-bright transition-colors"
           >
             프로젝트 문의
-          </a>
+          </Link>
         </div>
-      </div>
-
-      {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-mute">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em]">
-          Scroll
-        </span>
-        <span className="h-10 w-px bg-brand-mute animate-pulse" />
       </div>
     </section>
   );

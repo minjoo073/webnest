@@ -75,7 +75,7 @@ export default function Works() {
               >
                 <div className="flex items-baseline justify-between">
                   <span
-                    className={`font-mono text-[10px] uppercase tracking-[0.2em] ${
+                    className={`font-mono text-[11px] uppercase tracking-[0.2em] ${
                       active ? "text-brand-black/70" : "text-brand-mute"
                     }`}
                   >
@@ -99,7 +99,7 @@ export default function Works() {
 
         {/* Category filter — 세컨더리, 칩 형태 */}
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute mr-2">
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute mr-2">
             / 업종
           </span>
           {(["All", ...PROJECT_CATEGORIES] as CatFilter[]).map((cat) => (
@@ -165,12 +165,12 @@ export default function Works() {
               </div>
               <div className="flex items-baseline justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute">
                     {p.category} · {p.year}
                   </p>
                   <h3 className="display-hd text-2xl mt-1">{p.name}</h3>
                 </div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute">
                   {p.client}
                 </p>
               </div>
@@ -181,7 +181,7 @@ export default function Works() {
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border editorial-line px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-brand-silver"
+                    className="rounded-full border editorial-line px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-brand-silver"
                   >
                     {t}
                   </span>
@@ -215,7 +215,7 @@ function PlatformBadge({ platform }: { platform: ProjectPlatform }) {
         : "bg-brand-black text-brand-ivory border border-brand-ivory/30";
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] ${styles}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] ${styles}`}
     >
       {platform === "App" && (
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">

@@ -42,7 +42,7 @@ const config: Config = {
           green: "#1f5e3a",
           "green-bright": "#2fa15c",
           silver: "#bdbdbd",
-          mute: "#6b6b6b",
+          mute: "#8f8f8f",
         },
       },
       letterSpacing: {

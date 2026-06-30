@@ -48,7 +48,7 @@ function CountUp({ to, duration = 1600 }: { to: string; duration?: number }) {
 
 export default function Stats() {
   return (
-    <section className="relative py-24 border-t editorial-line">
+    <section className="relative pt-10 pb-40 border-t editorial-line">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((s, i) => (
@@ -59,7 +59,7 @@ export default function Stats() {
               <p className="display-hd text-5xl md:text-7xl text-brand-green-bright">
                 <CountUp to={s.value} />
               </p>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute">
+              <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute">
                 {s.label}
               </p>
             </div>

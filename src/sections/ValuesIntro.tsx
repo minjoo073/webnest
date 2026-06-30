@@ -4,7 +4,7 @@
  */
 export default function ValuesIntro() {
   return (
-    <section className="relative h-full min-h-screen flex items-center overflow-hidden border-t editorial-line">
+    <section className="relative pt-32 md:pt-48 pb-12 md:pb-16 overflow-hidden border-t editorial-line">
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 w-full">
         <div className="relative max-w-3xl">
           <span className="section-accent" aria-hidden />

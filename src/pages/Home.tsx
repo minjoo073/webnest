@@ -9,7 +9,6 @@ import FeaturedWorksIntro from "../sections/FeaturedWorksIntro";
 import FeaturedWorks from "../sections/FeaturedWorks";
 import AppLabIntro from "../sections/AppLabIntro";
 import AppLab from "../sections/AppLab";
-import ProcessIntro from "../sections/ProcessIntro";
 import Process from "../sections/Process";
 import ValuesIntro from "../sections/ValuesIntro";
 import Values from "../sections/Values";
@@ -43,7 +42,6 @@ export default function Home() {
       <FeaturedWorks />
       <AppLabIntro />
       <AppLab />
-      <ProcessIntro />
       <Process />
       <ValuesIntro />
       <Values />

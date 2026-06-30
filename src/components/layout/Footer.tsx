@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { socials, contact } from "../../data/stack";
@@ -55,7 +55,7 @@ export default function Footer() {
   const temp = useSeoulWeather();
   const zoneRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const zone = zoneRef.current;
     if (!zone) return;
 
@@ -131,12 +131,12 @@ export default function Footer() {
       className="footer-zone relative h-screen z-30"
     >
       <footer
-        className="footer-card absolute inset-0 bg-brand-green-bright text-brand-black rounded-t-[1.5rem] md:rounded-t-[2.5rem] overflow-hidden"
+        className="footer-card absolute inset-x-0 bottom-0 top-[8vh] md:top-[10vh] bg-brand-green-bright text-brand-black rounded-t-[1.5rem] md:rounded-t-[2.5rem] overflow-hidden"
         style={{ willChange: "transform" }}
       >
 
         {/* === Grid layout === */}
-        <div className="relative h-full grid grid-rows-[auto_1fr_auto] px-5 md:px-12 pt-5 md:pt-8 pb-0">
+        <div className="relative h-full grid grid-rows-[auto_1fr_auto] px-5 md:px-12 pt-5 md:pt-8 pb-12 md:pb-16">
           {/* === Top row === */}
           <header className="flex items-start justify-between gap-4">
             <Link
@@ -145,7 +145,7 @@ export default function Footer() {
             >
               WEB NEST.
             </Link>
-            <div className="flex items-center gap-2 md:gap-3 font-mono text-[10px] md:text-xs uppercase tracking-[0.18em]">
+            <div className="flex items-center gap-2 md:gap-3 font-mono text-[11px] md:text-xs uppercase tracking-[0.18em]">
               <span className="footer-live-dot inline-block h-1.5 w-1.5 rounded-full bg-brand-black" />
               <span>
                 SEL {temp !== null ? `${temp}°` : "—"} /{" "}
@@ -181,12 +181,9 @@ export default function Footer() {
                     A
                   </span>{" "}
                   <span
-                    className="footer-headline-word inline-block"
-                    style={{
-                      WebkitTextStroke: "2px #0a0a0a",
-                      color: "transparent",
-                      transitionDelay: "0.29s",
-                    }}
+                    className="footer-headline-word footer-fill inline-block"
+                    data-text="NEST"
+                    style={{ transitionDelay: "0.29s" }}
                   >
                     NEST
                   </span>
@@ -241,7 +238,7 @@ export default function Footer() {
             {/* Right info column */}
             <div className="col-span-12 md:col-span-5 md:col-start-9 grid grid-cols-3 md:grid-cols-1 gap-4 md:gap-6 font-mono">
               <div>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.22em] text-brand-black/60">
+                <p className="text-[11px] md:text-[11px] uppercase tracking-[0.22em] text-brand-black/60">
                   LOCAL TIME (SEL)
                 </p>
                 <p className="mt-1.5 flex items-center gap-2 text-base md:text-xl font-bold tabular-nums">
@@ -251,7 +248,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.22em] text-brand-black/60 mb-2">
+                <p className="text-[11px] md:text-[11px] uppercase tracking-[0.22em] text-brand-black/60 mb-2">
                   SOCIALS
                 </p>
                 <ul className="space-y-0.5">
@@ -271,7 +268,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.22em] text-brand-black/60 mb-2">
+                <p className="text-[11px] md:text-[11px] uppercase tracking-[0.22em] text-brand-black/60 mb-2">
                   NAVIGATION
                 </p>
                 <ul className="space-y-0.5">
@@ -295,8 +292,8 @@ export default function Footer() {
             <p
               className="footer-wordmark display-hd font-extrabold tracking-tightest leading-[0.78] text-brand-black"
               style={{
-                fontSize: "clamp(3rem, 14vw, 13rem)",
-                marginBottom: "-0.1em",
+                fontSize: "clamp(2.5rem, 10vw, 8.5rem)",
+                marginBottom: "0",
               }}
             >
               WEB NEST.
@@ -310,7 +307,7 @@ export default function Footer() {
         </div>
 
         {/* === Bottom legal row (overlay) === */}
-        <div className="absolute left-5 md:left-12 right-5 md:right-12 bottom-2 md:bottom-3 flex flex-wrap items-center justify-between gap-2 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-brand-black/55 pointer-events-auto">
+        <div className="absolute left-5 md:left-12 right-5 md:right-12 bottom-4 md:bottom-6 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] md:text-[11px] uppercase tracking-[0.2em] text-brand-black/55 pointer-events-auto">
           <span>© {new Date().getFullYear()} WEB NEST. All rights reserved.</span>
           <div className="flex gap-5">
             <Link to="/privacy" className="hover:text-brand-black">

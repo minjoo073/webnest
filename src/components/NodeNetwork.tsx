@@ -137,11 +137,29 @@ export default function NodeNetwork() {
 
     // Animation
     let raf = 0;
+    let paused = false;
+
+    // 첫 화면을 벗어나면(큐브가 옆으로 접히기 시작) 캔버스를 숨기고 렌더 정지.
+    // WebGL 캔버스는 3D 변형 안에서 edge-on으로 찌그러져 노이즈 띠를 만드는데,
+    // 부모 opacity/visibility를 무시하므로 캔버스 자체를 직접 숨겨야 함.
+    const canvasEl = renderer.domElement;
+    const onScroll = () => {
+      const hide = window.scrollY > window.innerHeight * 0.5;
+      canvasEl.style.visibility = hide ? "hidden" : "visible";
+      paused = hide;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     const greenColor = new THREE.Color(0x2fa15c);
     const ivoryColor = new THREE.Color(0xf5f1e8);
     const tmpColor = new THREE.Color();
 
     const animate = () => {
+      if (paused) {
+        raf = requestAnimationFrame(animate);
+        return;
+      }
       // Lerp mouse
       mouse.lerp(targetMouse, 0.08);
 
@@ -249,6 +267,7 @@ export default function NodeNetwork() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       ro.disconnect();
       renderer.dispose();
@@ -257,8 +276,12 @@ export default function NodeNetwork() {
       lineGeo.dispose();
       lineMat.dispose();
       dotTex.dispose();
-      if (renderer.domElement.parentNode === mount) {
-        mount.removeChild(renderer.domElement);
+      // 실제 부모에서 제거 + try/catch — React 언마운트와 충돌(removeChild) 방지
+      try {
+        const el = renderer.domElement;
+        el.parentNode?.removeChild(el);
+      } catch {
+        /* React가 이미 제거했을 수 있음 — 무시 */
       }
     };
   }, []);

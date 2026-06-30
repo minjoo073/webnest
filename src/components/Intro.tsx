@@ -194,7 +194,7 @@ export default function Intro({ onDone }: { onDone?: () => void }) {
       </div>
 
       {/* 하단 sub-line */}
-      <p className="intro-tagline absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.3em] text-brand-ivory/50 text-center">
+      <p className="intro-tagline absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[11px] uppercase tracking-[0.3em] text-brand-ivory/50 text-center">
         Digital Brand Experience Studio
         <br />
         SEL · EST. 2026

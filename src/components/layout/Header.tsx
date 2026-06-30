@@ -40,7 +40,7 @@ export default function Header() {
           aria-label="WEB NEST 홈"
         >
           WEB <span className="text-brand-green-bright">NEST</span>
-          <span className="ml-2 text-[10px] font-mono uppercase tracking-widest text-brand-mute">
+          <span className="ml-2 text-[11px] font-mono uppercase tracking-widest text-brand-mute">
             studio
           </span>
         </Link>

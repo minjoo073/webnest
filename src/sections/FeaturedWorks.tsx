@@ -68,7 +68,7 @@ export default function FeaturedWorks() {
   return (
     <section
       ref={sectionRef}
-      className="relative border-t editorial-line overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Header는 FeaturedWorksIntro (큐브 face)로 분리됨 */}
 
@@ -77,7 +77,7 @@ export default function FeaturedWorks() {
         {/* Progress bar */}
         <div className="absolute top-6 left-0 right-0 z-10 px-10 hidden lg:block">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute shrink-0">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute shrink-0">
               {String(Math.round(progress * (featuredWebProjects.length))).padStart(2, "0")}
               <span className="text-brand-ivory/30">
                 {" "}/ {String(featuredWebProjects.length).padStart(2, "0")}
@@ -89,7 +89,7 @@ export default function FeaturedWorks() {
                 style={{ width: `${Math.max(2, progress * 100)}%` }}
               />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute shrink-0">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute shrink-0">
               SCROLL →
             </span>
           </div>
@@ -121,12 +121,12 @@ export default function FeaturedWorks() {
                 <div className="absolute top-5 right-5">
                   <PlatformBadge platform={p.platform} />
                 </div>
-                <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.2em] text-brand-ivory/80">
+                <div className="absolute top-5 left-5 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ivory/80">
                   / {String(i + 1).padStart(2, "0")}
                 </div>
                 {/* Hover info panel */}
                 <div className="absolute inset-0 flex flex-col justify-end p-8 bg-brand-black/85 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-green-bright mb-2">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-green-bright mb-2">
                     {p.category} · {p.year}
                   </p>
                   <h3 className="display-hd text-3xl md:text-4xl mb-3">
@@ -139,7 +139,7 @@ export default function FeaturedWorks() {
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full border editorial-line px-3 py-1 text-[10px] uppercase tracking-[0.15em]"
+                        className="rounded-full border editorial-line px-3 py-1 text-[11px] uppercase tracking-[0.15em]"
                       >
                         {t}
                       </span>
@@ -151,7 +151,7 @@ export default function FeaturedWorks() {
                 <h3 className="display-hd text-2xl md:text-3xl">
                   {p.name}
                 </h3>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute">
                   {p.category} · {p.platform}
                 </p>
               </div>
@@ -205,7 +205,7 @@ function PlatformBadge({ platform }: { platform: ProjectPlatform }) {
         : "bg-brand-black text-brand-ivory border border-brand-ivory/30";
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] ${styles}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] ${styles}`}
     >
       {platform}
     </span>

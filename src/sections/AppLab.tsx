@@ -7,7 +7,7 @@ import type { Project } from "../data/projects";
  */
 export default function AppLab() {
   return (
-    <section className="relative py-32 md:py-48 border-t editorial-line overflow-hidden">
+    <section className="relative pb-32 md:pb-48 overflow-hidden">
 
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10">
         {/* Header는 AppLabIntro (큐브 face)로 분리됨 */}
@@ -54,7 +54,7 @@ function PhoneCard({ project: p, index }: { project: Project; index: number }) {
             <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-6 w-24 rounded-full bg-black/70" />
 
             {/* Status bar */}
-            <div className="absolute top-2.5 left-0 right-0 z-10 px-6 flex items-center justify-between font-mono text-[10px] text-brand-ivory/90 mix-blend-difference">
+            <div className="absolute top-2.5 left-0 right-0 z-10 px-6 flex items-center justify-between font-mono text-[11px] text-brand-ivory/90 mix-blend-difference">
               <span>9:41</span>
               <span className="opacity-0">.</span>
               <span className="flex items-center gap-1">
@@ -67,7 +67,7 @@ function PhoneCard({ project: p, index }: { project: Project; index: number }) {
             <div className="absolute inset-0 flex flex-col">
               {/* Top area — app name + category */}
               <div className="pt-12 px-5">
-                <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-brand-ivory/70 mix-blend-difference">
+                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-ivory/70 mix-blend-difference">
                   {p.category}
                 </p>
                 <p
@@ -118,7 +118,7 @@ function PhoneCard({ project: p, index }: { project: Project; index: number }) {
 
       {/* Meta */}
       <div className="mt-8 w-full text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-mute">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-mute">
           {String(index + 1).padStart(2, "0")} / {p.client}
         </p>
         <h3 className="display-hd text-2xl md:text-3xl mt-2">{p.name}</h3>
@@ -129,7 +129,7 @@ function PhoneCard({ project: p, index }: { project: Project; index: number }) {
           {p.tags.map((t) => (
             <span
               key={t}
-              className="rounded-full border editorial-line px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-brand-silver"
+              className="rounded-full border editorial-line px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-brand-silver"
             >
               {t}
             </span>
@@ -171,7 +171,7 @@ function MockTile({ accent }: { accent: string }) {
         className="h-6 w-6 rounded-md"
         style={{ background: accent, opacity: 0.9 }}
       />
-      <span className="block h-1.5 rounded-full bg-brand-ivory/55 w-3/4" />
+      <span className="block h-1.5 rounded-full bg-brand-ivory/70 w-3/4" />
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function Services() {
                 {p.description}
               </div>
               <div className="col-span-4 md:col-span-1 self-center text-right">
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-mute">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-mute">
                   →
                 </span>
               </div>
@@ -114,7 +114,7 @@ export default function Services() {
                   {step.index}
                 </p>
                 <h3 className="display-hd text-2xl mb-2">{step.title}</h3>
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-mute mb-4">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-mute mb-4">
                   {step.korean} · {step.duration}
                 </p>
                 <p className="text-sm text-brand-silver leading-relaxed">

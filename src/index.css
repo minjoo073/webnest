@@ -13,6 +13,7 @@
 
 @layer base {
   html {
+    background: var(--brand-black);
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -265,6 +266,38 @@
   .footer-card.scroll-visible .footer-wordmark {
     clip-path: inset(0 0 0 0);
     -webkit-clip-path: inset(0 0 0 0);
+  }
+
+  /* 헤드라인 "NEST" — 외곽선 상태에서 푸터 진입 시 좌→우로 채워짐 */
+  .footer-fill {
+    position: relative;
+    -webkit-text-stroke: 2px #0a0a0a;
+    color: transparent;
+  }
+  .footer-fill::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-text-stroke: 0;
+    color: #0a0a0a;
+    clip-path: inset(0 100% 0 0);
+    -webkit-clip-path: inset(0 100% 0 0);
+    transition:
+      clip-path 1.1s var(--ease-out-expo) 0.55s,
+      -webkit-clip-path 1.1s var(--ease-out-expo) 0.55s;
+    pointer-events: none;
+  }
+  .footer-card.scroll-visible .footer-fill::after {
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer-fill::after {
+      transition: none;
+      clip-path: inset(0 0 0 0);
+      -webkit-clip-path: inset(0 0 0 0);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .footer-headline-word,
